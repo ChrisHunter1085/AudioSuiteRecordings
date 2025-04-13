@@ -40,37 +40,24 @@
       z-index: 2;
       position: relative;
     }
-    .animated-notes {
+    .wave-svg {
       position: absolute;
       top: 0;
       left: 0;
       width: 100%;
       height: 100%;
-      pointer-events: none;
-      overflow: hidden;
-      z-index: 1;
+      z-index: 0;
+      opacity: 0.05;
     }
-    .note {
-      position: absolute;
-      top: 50%;
-      width: 20px;
-      height: 20px;
-      background: url('https://upload.wikimedia.org/wikipedia/commons/1/13/Music-note.svg') no-repeat center;
-      background-size: contain;
-      animation: floatNotes 12s linear infinite;
-      opacity: 0.07;
+    .wave-svg svg {
+      width: 200%;
+      height: 100%;
+      animation: waveFlow 20s linear infinite;
     }
-    .note:nth-child(1) { left: 0%; animation-delay: 0s; }
-    .note:nth-child(2) { left: 20%; animation-delay: 2s; }
-    .note:nth-child(3) { left: 40%; animation-delay: 4s; }
-    .note:nth-child(4) { left: 60%; animation-delay: 6s; }
-    .note:nth-child(5) { left: 80%; animation-delay: 8s; }
-
-    @keyframes floatNotes {
-      0% { transform: translateY(0) rotate(0deg); }
-      100% { transform: translateY(-200%) rotate(360deg); }
+    @keyframes waveFlow {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
     }
-
     .hero {
       display: flex;
       flex-direction: column;
@@ -134,12 +121,10 @@
 </head>
 <body>
   <header>
-    <div class="animated-notes">
-      <div class="note"></div>
-      <div class="note"></div>
-      <div class="note"></div>
-      <div class="note"></div>
-      <div class="note"></div>
+    <div class="wave-svg">
+      <svg viewBox="0 0 1200 120" preserveAspectRatio="none">
+        <path d="M0,60 C300,120 900,0 1200,60 L1200,120 L0,120 Z" fill="#00d4ff" />
+      </svg>
     </div>
     <h1>AudioSuite Recordings</h1>
     <nav>
@@ -153,8 +138,8 @@
   </section>
   <div class="video-container">
     <video controls>
-      <source src="copy_5B606F5F-F98C-41A4-B584-04B51125C985.MOV" type="video/quicktime">
-      <p>Your browser does not support the video tag. <a href="copy_5B606F5F-F98C-41A4-B584-04B51125C985.MOV">Click here to download the video</a>.</p>
+      <source src="promo_video.mp4" type="video/mp4">
+      <p>Your browser does not support the video tag. <a href="promo_video.mp4">Click here to download the video</a>.</p>
     </video>
   </div>
   <section class="services">
