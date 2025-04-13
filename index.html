@@ -16,6 +16,8 @@
       background-color: #111;
       padding: 2rem;
       text-align: center;
+      position: relative;
+      overflow: hidden;
     }
     header h1 {
       margin: 0;
@@ -25,6 +27,8 @@
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       text-shadow: 1px 1px 10px rgba(0, 212, 255, 0.3);
+      z-index: 2;
+      position: relative;
     }
     nav a {
       display: inline-block;
@@ -33,6 +37,23 @@
       text-decoration: none;
       font-weight: 600;
       font-size: 1rem;
+      z-index: 2;
+      position: relative;
+    }
+    .waves {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 200%;
+      height: 100%;
+      background-image: url('https://www.transparenttextures.com/patterns/symphony.png');
+      opacity: 0.08;
+      animation: flow 20s linear infinite;
+      z-index: 1;
+    }
+    @keyframes flow {
+      from { transform: translateX(0); }
+      to { transform: translateX(-50%); }
     }
     .hero {
       display: flex;
@@ -97,6 +118,7 @@
 </head>
 <body>
   <header>
+    <div class="waves"></div>
     <h1>AudioSuite Recordings</h1>
     <nav>
       <a href="https://www.chrishunteraudio.com" target="_blank">Visit My Portfolio → www.ChrisHunterAudio.com</a>
@@ -109,8 +131,8 @@
   </section>
   <div class="video-container">
     <video controls>
-      <source src="promo_video.mov" type="video/mp4">
-      Your browser does not support the video tag.
+      <source src="promo_video.mp4" type="video/mp4">
+      <p>Your browser does not support the video tag. <a href="promo_video.mp4">Click here to download the video</a>.</p>
     </video>
   </div>
   <section class="services">
